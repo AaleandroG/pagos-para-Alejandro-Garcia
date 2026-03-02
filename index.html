@@ -1,108 +1,62 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cobro Seguro | Alejandro García</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-
-<style>
-body {
-    font-family: 'Inter', sans-serif;
-    margin: 0;
-    background: linear-gradient(135deg, #0f172a, #1e293b);
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-}
-
-.container {
-    background: white;
-    color: #111;
-    padding: 60px;
-    border-radius: 20px;
-    max-width: 650px;
-    width: 90%;
-    box-shadow: 0 30px 80px rgba(0,0,0,0.5);
-    text-align: center;
-}
-
-h1 {
-    margin-bottom: 10px;
-    font-size: 30px;
-}
-
-.subtitle {
-    color: #555;
-    margin-bottom: 30px;
-}
-
-.security-box {
-    background: #f8fafc;
-    padding: 25px;
-    border-radius: 15px;
-    margin: 30px 0;
-    text-align: left;
-    font-size: 14px;
-    line-height: 1.6;
-}
-
-.pay-button {
-    display: inline-block;
-    margin-top: 20px;
-    background: linear-gradient(135deg, #635bff, #4f46e5);
-    color: white;
-    padding: 18px 35px;
-    font-size: 18px;
-    border-radius: 12px;
-    text-decoration: none;
-    transition: all 0.2s ease;
-}
-
-.pay-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 35px rgba(99,91,255,0.4);
-}
-
-.footer {
-    margin-top: 40px;
-    font-size: 12px;
-    color: #777;
-}
-</style>
+    <title>Pago Seguro</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            text-align: center;
+            padding-top: 60px;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            margin: auto;
+            width: 400px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        h2 {
+            margin-bottom: 20px;
+        }
+        input[type="number"] {
+            width: 80%;
+            padding: 10px;
+            margin: 15px 0;
+            font-size: 16px;
+        }
+        input[type="submit"] {
+            background-color: #0070ba;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #005c99;
+        }
+    </style>
 </head>
-
 <body>
 
 <div class="container">
+    <h2>Pago Seguro</h2>
+    <p>Introduce el importe que deseas pagar (mínimo 1€)</p>
 
-<h1>Cobro de lo acordado</h1>
-<p class="subtitle">Beneficiario: <strong>Alejandro García</strong></p>
+    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_xclick">
+        <input type="hidden" name="business" value="alejandrogarcia12345678910e@gmail.com">
+        <input type="hidden" name="item_name" value="Pago personalizado">
+        <input type="hidden" name="currency_code" value="EUR">
+        
+        <input type="number" name="amount" min="1" step="0.01" required placeholder="Importe en €">
 
-<p>Seleccione el importe correspondiente y complete el pago de forma segura.</p>
-
-<a href="PEGA_AQUI_TU_LINK_STRIPE" target="_blank" class="pay-button">
-Realizar pago seguro
-</a>
-
-<div class="security-box">
-<strong>🔒 Seguridad garantizada</strong><br><br>
-
-• El pago es procesado directamente por <strong>Stripe</strong>.<br>
-• Cumplimiento del estándar internacional <strong>PCI-DSS Nivel 1</strong>.<br>
-• Cifrado SSL de 256 bits en toda la transacción.<br>
-• No almacenamos datos bancarios ni tarjetas.<br>
-• Protección antifraude integrada.<br>
-• Verificación bancaria y autenticación 3D Secure cuando aplica.<br>
-</div>
-
-<div class="footer">
-Plataforma de pago certificada internacionalmente.  
-Transacción 100% segura y encriptada.
-</div>
-
+        <br>
+        <input type="submit" value="Pagar con PayPal">
+    </form>
 </div>
 
 </body>
