@@ -3,120 +3,148 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pago Seguro</title>
+<title>Pasarela de Pago | Alejandro García</title>
 
 <style>
 body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    background-color: #f5f7fa;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
 
-.checkout-card {
-    background: #ffffff;
+.checkout-wrapper {
     width: 100%;
-    max-width: 420px;
-    padding: 40px;
-    border-radius: 16px;
-    box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+    max-width: 480px;
+    background: #ffffff;
+    padding: 45px;
+    border-radius: 14px;
+    box-shadow: 0 20px 45px rgba(0,0,0,0.08);
+}
+
+.header {
     text-align: center;
-}
-
-.logo {
-    font-size: 22px;
-    font-weight: 600;
-    margin-bottom: 10px;
-}
-
-.secure-badge {
-    font-size: 14px;
-    color: #28a745;
     margin-bottom: 25px;
 }
 
-h2 {
-    margin-bottom: 10px;
+.header h1 {
+    font-size: 22px;
+    margin: 0;
+    font-weight: 600;
 }
 
-.description {
+.header p {
     font-size: 14px;
     color: #666;
+    margin-top: 6px;
+}
+
+.security-badge {
+    text-align: center;
+    font-size: 13px;
+    color: #2e7d32;
+    margin-bottom: 30px;
+}
+
+.beneficiary {
+    background: #f1f4f8;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 14px;
     margin-bottom: 25px;
 }
 
-.amount-input {
+.beneficiary strong {
+    color: #000;
+}
+
+label {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+input[type="number"] {
     width: 100%;
     padding: 14px;
-    font-size: 18px;
+    font-size: 17px;
     border-radius: 8px;
     border: 1px solid #ccc;
-    margin-bottom: 20px;
+    margin-top: 8px;
+    margin-bottom: 25px;
+    box-sizing: border-box;
 }
 
 .pay-button {
     width: 100%;
-    padding: 14px;
+    padding: 15px;
     font-size: 16px;
     border-radius: 8px;
     border: none;
-    background-color: #0070ba;
+    background-color: #003087;
     color: white;
     cursor: pointer;
     transition: 0.3s ease;
+    font-weight: 600;
 }
 
 .pay-button:hover {
-    background-color: #005c99;
+    background-color: #001c5a;
 }
 
-.footer-security {
-    margin-top: 25px;
+.footer {
+    text-align: center;
     font-size: 12px;
-    color: #888;
+    color: #777;
+    margin-top: 25px;
+    line-height: 1.5;
 }
 </style>
 </head>
 
 <body>
 
-<div class="checkout-card">
+<div class="checkout-wrapper">
 
-    <div class="logo">Pago Seguro</div>
-    <div class="secure-badge">🔒 Conexión cifrada SSL · Procesado por PayPal</div>
+    <div class="header">
+        <h1>Pasarela de Pago Segura</h1>
+        <p>Transacción protegida y cifrada</p>
+    </div>
 
-    <h2>Finalizar Pago</h2>
-    <div class="description">
-        Introduce el importe que deseas pagar.  
-        Mínimo permitido: 1€.
+    <div class="security-badge">
+        🔒 Conexión segura SSL · Procesado mediante PayPal
+    </div>
+
+    <div class="beneficiary">
+        Beneficiario del pago:<br>
+        <strong>Alejandro García</strong>
     </div>
 
     <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
         <input type="hidden" name="cmd" value="_xclick">
         <input type="hidden" name="business" value="alejandrogarcia12345678910e@gmail.com">
-        <input type="hidden" name="item_name" value="Pago personalizado">
+        <input type="hidden" name="item_name" value="Pago a Alejandro García">
         <input type="hidden" name="currency_code" value="EUR">
 
+        <label>Importe a pagar (mínimo 1€)</label>
         <input 
-            class="amount-input"
             type="number" 
             name="amount" 
             min="1" 
             step="0.01" 
             required 
-            placeholder="Importe en €">
+            placeholder="Introduce el importe en €">
 
         <button class="pay-button" type="submit">
-            Pagar de forma segura
+            Proceder al Pago Seguro
         </button>
     </form>
 
-    <div class="footer-security">
-        Todas las transacciones se realizan a través de la plataforma segura de PayPal.
-        No almacenamos datos bancarios.
+    <div class="footer">
+        Esta transacción se procesa de forma segura a través de la plataforma oficial de PayPal. <br>
+        No almacenamos datos bancarios ni información financiera.
     </div>
 
 </div>
