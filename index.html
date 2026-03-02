@@ -3,67 +3,87 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pasarela de Pago | Alejandro García</title>
+<title>Pago Seguro | Alejandro García</title>
 
 <style>
 body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-    background-color: #f5f7fa;
+    background: linear-gradient(135deg, #e0e5ec, #f5f7fa);
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
 }
 
-.checkout-wrapper {
+.checkout-card {
+    background: #ffffff;
     width: 100%;
     max-width: 480px;
-    background: #ffffff;
-    padding: 45px;
-    border-radius: 14px;
-    box-shadow: 0 20px 45px rgba(0,0,0,0.08);
+    padding: 50px 35px;
+    border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+    text-align: center;
 }
 
 .header {
-    text-align: center;
-    margin-bottom: 25px;
+    margin-bottom: 30px;
 }
 
 .header h1 {
-    font-size: 22px;
+    font-size: 24px;
+    font-weight: 700;
     margin: 0;
-    font-weight: 600;
+    color: #003087;
 }
 
 .header p {
     font-size: 14px;
-    color: #666;
+    color: #555;
     margin-top: 6px;
 }
 
 .security-badge {
-    text-align: center;
     font-size: 13px;
     color: #2e7d32;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .beneficiary {
     background: #f1f4f8;
     padding: 12px;
     border-radius: 8px;
-    font-size: 14px;
-    margin-bottom: 25px;
+    font-size: 15px;
+    margin-bottom: 20px;
 }
 
 .beneficiary strong {
-    color: #000;
+    color: #003087;
+}
+
+.description {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.product-info {
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    text-align: left;
+    font-size: 14px;
+    color: #555;
 }
 
 label {
+    display: block;
     font-size: 14px;
     font-weight: 500;
+    margin-bottom: 8px;
+    text-align: left;
 }
 
 input[type="number"] {
@@ -72,8 +92,7 @@ input[type="number"] {
     font-size: 17px;
     border-radius: 8px;
     border: 1px solid #ccc;
-    margin-top: 8px;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     box-sizing: border-box;
 }
 
@@ -88,38 +107,51 @@ input[type="number"] {
     cursor: pointer;
     transition: 0.3s ease;
     font-weight: 600;
+    margin-bottom: 15px;
 }
 
 .pay-button:hover {
     background-color: #001c5a;
 }
 
+.card-payment-info {
+    font-size: 13px;
+    color: #555;
+    margin-bottom: 25px;
+}
+
 .footer {
-    text-align: center;
     font-size: 12px;
     color: #777;
     margin-top: 25px;
     line-height: 1.5;
+    text-align: center;
 }
 </style>
 </head>
 
 <body>
 
-<div class="checkout-wrapper">
+<div class="checkout-card">
 
     <div class="header">
-        <h1>Pasarela de Pago Segura</h1>
-        <p>Transacción protegida y cifrada</p>
+        <h1>Pago Seguro</h1>
+        <p>Transacción cifrada y procesada por PayPal</p>
     </div>
 
     <div class="security-badge">
-        🔒 Conexión segura SSL · Procesado mediante PayPal
+        🔒 SSL seguro · Pago procesado por PayPal
     </div>
 
     <div class="beneficiary">
         Beneficiario del pago:<br>
         <strong>Alejandro García</strong>
+    </div>
+
+    <div class="product-info">
+        <strong>Detalle del servicio/producto:</strong><br>
+        Pago personalizado para apoyar o adquirir servicios de Alejandro García. <br>
+        Recibirás confirmación inmediata al completar tu pago.
     </div>
 
     <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
@@ -140,11 +172,16 @@ input[type="number"] {
         <button class="pay-button" type="submit">
             Proceder al Pago Seguro
         </button>
+
+        <div class="card-payment-info">
+            También puedes pagar con **tarjeta de crédito/débito**, sin necesidad de cuenta PayPal.
+        </div>
     </form>
 
     <div class="footer">
-        Esta transacción se procesa de forma segura a través de la plataforma oficial de PayPal. <br>
-        No almacenamos datos bancarios ni información financiera.
+        Esta transacción se realiza a través de la plataforma oficial de PayPal. <br>
+        No almacenamos información bancaria ni datos de tarjeta. <br>
+        Todos los pagos son protegidos por PayPal.
     </div>
 
 </div>
